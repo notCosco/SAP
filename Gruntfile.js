@@ -139,10 +139,14 @@ module.exports = function(grunt) {
 					},
 					ui5: {
 						language: 'EN',
-						transportno: 'I42K902395',
-						package: 'Z801_DEV_PACK_SJOO',
-						bspcontainer: 'Z801_BOOKS_SJOO',
-						bspcontainer_text: 'Books UI5 app Szila'
+						// transportno: 'I42K902395',
+						transportno: 'I42K902265',
+						// package: 'Z801_DEV_PACK_SJOO',
+						package: 'Z081_LIBRARY_SEMA',
+						// bspcontainer: 'Z801_BOOKS_SJOO',
+						bspcontainer: 'z801_BOOKS_SEMA',
+						// bspcontainer_text: 'Books UI5 app Szila'
+						bspcontainer_text: "ABAP app COSCO"
 					},
 					resources: {
 						cwd: 'dist',

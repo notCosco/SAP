@@ -1,0 +1,44 @@
+<core:FragmentDefinition 
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core" 
+    xmlns:c="sap.ui.core" 
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form" 
+    xmlns:ui="sap.ui">
+    <Dialog>
+         <f:SimpleForm id="idInsertNewBookForm"
+            maxContainerCols="2"
+            editable="true"
+            layout="ResponsiveGridLayout"
+            title="{i18n>newBook}"
+            labelSpanL="2"
+            labelSpanM="2"
+            emptySpanL="0"
+            emptySpanM="0"
+            columnsL="1"
+            columnsM="1"
+            class="editableForm">
+
+            <f:content>
+                <core:Title text="Insert" />
+                <Label text="ISBN"/>
+                <Input value="{/ISBN}" placeholder="ISBN"/>
+                <Label text="Title"/>
+                <Input value="{/Title}" placeholder="Title"/>
+                <Label text="Author"/>
+                <Input value="{/Author}" placeholder="Author"/>
+                <Label text="Published On"/>
+                <DatePicker value="{/DatePublished}" placeholder= "dd/mm/yyyy"/>
+                <Label text="Language"/>
+                <Input value="{/Language}" placeholder="Lang"/>
+                <Label text="Total Nr"/>
+                <Input value="{path:'/TotalNumber', type:'sap.ui.model.odata.type.Int16'}" placeholder="Totlal Nr"/>
+                <Label text="Available Nr."/>
+                <Input value="{path:'/AvailbleNumber', type:'sap.ui.model.odata.type.Int16'}" placeholder="Available Nr"/>
+                <Button text="Save" type="Accept" press="saveBook"/>
+             
+            </f:content>
+
+        </f:SimpleForm>
+    </Dialog>
+</core:FragmentDefinition>
