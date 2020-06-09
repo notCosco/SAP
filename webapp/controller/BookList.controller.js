@@ -29,6 +29,7 @@ sap.ui.define([
             this._oDialog.open();
         },
 
+        // method to sort the books
         onConfirmSort(oEvent){
             var oView = this.getView();
             var oTable = oView.byId("idBooksTable");
@@ -45,7 +46,7 @@ sap.ui.define([
         
         },
 
-       
+    //     method to delete a book called from the UI when the delete button is pressed
         delete(oEvent){
          
             
@@ -57,6 +58,8 @@ sap.ui.define([
                 MessageToast.show("No book selected"); 
             }
         },
+
+        // method called when the INSERT button is pressed from the Ui
 
         insert(oEvent){
             this.clearData();
@@ -71,7 +74,7 @@ sap.ui.define([
             this.newBookDialog.getModel().setData(this.book);
             this.newBookDialog.open();
         },
-       
+    //    method to pare the date of a book for insert, for communication between front- and backend
         parse(oBook ){ 
             var dateString = oBook.DatePublished;
             var dateFormat = sap.ui.core.format.DateFormat.getDateInstance({pattern : "dd/MM/yyyy" });
@@ -81,6 +84,7 @@ sap.ui.define([
             return oBook;
         },
 
+    //    method to pare the date of a book for update, only for display purposes
         parseUpdate(oBook){
             var dateFormat = sap.ui.core.format.DateFormat.getDateInstance({pattern : "dd/MM/yyyy" }); 
             var date = new Date(oBook.DatePublished);
@@ -114,7 +118,7 @@ sap.ui.define([
            
         },
 
-
+        //  method called when the update button is pressed from the Ui
        update(oEvent){
         var oResourceBundle = this.getView().getModel("i18n").getResourceBundle();
         const aSelContext = this.byId("idBooksTable").getSelectedContexts();
@@ -137,6 +141,7 @@ sap.ui.define([
         }
     },
 
+    // method to update a book called from the Update fragment
         updateBook(oEvent){           
            
             var oResourceBundle = this.getView().getModel("i18n").getResourceBundle();
@@ -158,12 +163,13 @@ sap.ui.define([
           
         },
 
+        // method to checkout a book 
+
         checkout(oEvent){
             this.clearData();
             var oResourceBundle = this.getView().getModel("i18n").getResourceBundle();
             const aSelContexts = this.byId("idBooksTable").getSelectedContexts();
-            const sBookPath = aSelContexts[0].getPath();
-
+            const sBookPath = aSelContexts[0].getPath();          
            
             // Get the Path of the selected book and update
             var oBook = aSelContexts[0].getObject();
